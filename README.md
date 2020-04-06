@@ -668,3 +668,37 @@
   <p><i>Источник: <a href ="https://ru.reactjs.org/docs/react-api.html#reactpurecomponent">ru.reactjs.org</a></i></p>
 </div>
 </details>
+
+<details>
+<summary>Что такое Компонент высшего порядка (Higher-Order Component, HOC)?</summary>
+<div>
+  <br />
+  <p>
+    Говоря просто, компонент высшего порядка — это функция, которая принимает компонент и возвращает новый компонент. HOC часто встречаются в сторонних библиотеках, например connect в Redux и createFragmentContainer в Relay.
+
+    const EnhancedComponent = higherOrderComponent(WrappedComponent);
+  </p>
+  <p>
+    Давайте реализуем функцию withSubscription — она будет создавать компоненты и подписывать их на обновления DataSource (наподобие CommentList и BlogPost). Функция будет принимать оборачиваемый компонент и через пропсы передавать ему новые данные:
+  
+    const CommentListWithSubscription = withSubscription(
+      CommentList,
+      (DataSource) => DataSource.getComments()
+    );
+
+    const BlogPostWithSubscription = withSubscription(
+      BlogPost,
+      (DataSource, props) => DataSource.getBlogPost(props.id)
+    );
+  </p>
+  <p>
+    Первый параметр — это оборачиваемый компонент. Второй — функция, которая извлекает нужные нам данные, она получает DataSource и текущие пропсы.
+  </p>
+  <p>
+    Заметьте, что HOC ничего не меняет и не наследует поведение оборачиваемого компонента, вместо этого HOC оборачивает оригинальный компонент в контейнер посредством композиции. HOC является чистой функцией без побочных эффектов. Вот и всё! Оборачиваемый компонент получает все пропсы, переданные контейнеру, а также проп data. Для HOC не важно, как будут использоваться данные, а оборачиваемому компоненту не важно, откуда они берутся.
+  </p>
+  <p><i>Источник: <a href ="https://ru.reactjs.org/docs/higher-order-components.html">ru.reactjs.org</a></i></p>
+</div>
+</details>
+
+<br/>
