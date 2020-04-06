@@ -309,3 +309,44 @@
    <p><i>Источник: <a href="https://developer.mozilla.org/ru/docs/Web/HTTP/%D0%9A%D1%83%D0%BA%D0%B8">developer.mozilla.org</a></i></p>
   </div>
 </details>
+
+<details>
+  <summary>Что такое Babel и для чего он используется?</summary>
+  <div>
+    <br/>
+    <p>
+      Babel.JS – это транспайлер, переписывающий код на ES-2015 в код на предыдущем стандарте ES5.
+    </p>
+    <p>
+      Обычно Babel.JS работает на сервере в составе системы сборки JS-кода (например webpack или brunch) и автоматически переписывает весь код в ES5.
+    </p>
+    <p>
+      Настройка такой конвертации тривиальна, единственно – нужно поднять саму систему сборки, а добавить к ней Babel легко, плагины есть к любой из них.
+    </p>
+    <p>
+      Конфигурация Babel прописывается в файле babel.config.js, либо в .babelrc для настроек одного пакета, а также в package.json или .babelrc.js
+    </p>
+    <p>
+    Пример конфига в babel.config.js:
+      
+      module.exports = function (api) {
+        api.cache(true);
+
+        const presets = [ ... ];
+        const plugins = [ ... ];
+
+        return {
+          presets,
+          plugins
+        };
+      }
+   </p>
+    <p>
+     <i>
+       Источник: 
+        <a href="https://learn.javascript.ru/es-modern-usage#babel-js">learn.javascript.ru</a>, 
+        <a href="https://babeljs.io/docs/en/next/configuration">babeljs.io</a>
+     </i>
+    </p>
+  </div>
+</details>
