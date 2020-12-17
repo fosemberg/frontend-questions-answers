@@ -450,6 +450,25 @@
 </div>
 </details>
 
+<details>
+  <summary>
+    В какой последовательности вызовится?
+    <pre>
+setTimeout(() => console.log(3))
+new Promise((resolve, reject) => {
+  resolve()
+})
+  .then(() => console.log(2))
+console.log(1)
+    </pre>
+  </summary>
+  <pre>
+1 // первая таска
+2 // promise микротаска между тасками
+3 // setTimeout создает вторую таску, которая начнется после первой
+  </pre>
+</details>
+
 <br/>
 
 **Архитектура**:
