@@ -100,6 +100,21 @@
 </details>
 
 <details>
+    <summary>Почему POST запрос может использоваться для получения данных</summary>
+    <div>Если запрос использует не-ASCII символы или очень длинный, из-за ограничений на URL (максимально допустимая длина пути в Internet Explorer составляет 2048 символов) — строка запроса GET-метода может быть очень длинной, особенно при использовании URL-кодирования. В то же время метод POST не ограничен размером URL-адреса при отправке пар имя/значение. Эти пары пересылаются в заголовке, а не в URL-адресе.</div>
+<p><i>Источники:
+<ul>
+<li>
+<a href="https://ru.wikipedia.org/wiki/POST_(HTTP)#%D0%9F%D1%80%D0%B8%D0%BC%D0%B5%D1%87%D0%B0%D0%BD%D0%B8%D1%8F">ru.wikipedia.org</a>
+</li>
+<li>
+<a href="https://support.microsoft.com/ru-ru/help/208427/maximum-url-length-is-2-083-characters-in-internet-explorer">support.microsoft.com</a>
+</li>
+</ul>
+</i></p>
+</details>
+
+<details>
   <summary>Что такое Cross-Origin Resource Sharing (CORS)?</summary>
   <div>
     <p>
